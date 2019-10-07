@@ -10,4 +10,10 @@ public class BabysitterCalculatorTest {
         BabysitterCalculator babysitterCalculator = new BabysitterCalculator();
         Assertions.assertThat(babysitterCalculator.findTotal(21, 22, "A")).isEqualTo(15.00);
     }
+
+    @Test
+    public void testReturnsThirtyDollarsForTwoHoursWithFamilyA() {
+        BabysitterCalculator babysitterCalculator = new BabysitterCalculator();
+        Assertions.assertThat(babysitterCalculator.findTotal(20, 22, "A")).isEqualTo(30.00);
+    }
 }
