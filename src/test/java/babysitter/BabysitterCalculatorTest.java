@@ -8,6 +8,6 @@ public class BabysitterCalculatorTest {
     @Test
     public void testReturnsFifteenDollarsForOneHourWithFamilyA() {
         BabysitterCalculator babysitterCalculator = new BabysitterCalculator();
-        Assertions.assertThat(babysitterCalculator.findTotal("9PM", "10PM", "A")).isEqualTo(15.00);
+        Assertions.assertThat(babysitterCalculator.findTotal(21, 22, "A")).isEqualTo(15.00);
     }
 }

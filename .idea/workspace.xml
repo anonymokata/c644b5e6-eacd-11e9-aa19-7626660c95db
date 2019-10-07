@@ -16,7 +16,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RtXZH4YcPrwai6k7GPnxO83XEZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -41,7 +45,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.BabysitterCalculatorTest">
+    <configuration name="BabysitterCalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="babysitter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="babysitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="babysitter" />
+      <option name="MAIN_CLASS_NAME" value="babysitter.BabysitterCalculatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BabysitterCalculatorTest.testReturnsFifteenDollarsForOneHourWithFamilyA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="babysitter" />
       <extension name="coverage">
@@ -60,6 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BabysitterCalculatorTest" />
         <item itemvalue="JUnit.BabysitterCalculatorTest.testReturnsFifteenDollarsForOneHourWithFamilyA" />
       </list>
     </recent_temporary>
@@ -76,5 +96,16 @@
       <updated>1570487419302</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
