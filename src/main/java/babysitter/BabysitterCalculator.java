@@ -70,7 +70,10 @@ public class BabysitterCalculator {
             return ((Math.abs(adjustedEnd - adjustedStart) * 15) + (lateNightHours * 5));
         }
         else {
-            return (endHour - startHour) * 12;
+            if (startHour < 22) {
+                return (endHour - startHour) * 12;
+            }
+            return (endHour - startHour) * 8;
         }
     }
 }
