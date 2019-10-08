@@ -3,10 +3,6 @@ package babysitter;
 public class BabysitterCalculator {
 
     public String findTotal(String startTime, String endTime, String family) {
-        if (family.equals("B")) {
-            return "$12.00";
-        }
-
         int startHour = parseTime(startTime);
         int endHour = parseTime(endTime);
 
@@ -15,7 +11,7 @@ public class BabysitterCalculator {
 
         int lateNightHours = findLateNightHours(startAtMilitaryTime, endAtMilitaryTime);
 
-        return "$" + calculateTotal(endAtMilitaryTime, startAtMilitaryTime, lateNightHours) + ".00";
+        return "$" + calculateTotal(endAtMilitaryTime, startAtMilitaryTime, lateNightHours, family) + ".00";
 
     }
 
@@ -58,17 +54,23 @@ public class BabysitterCalculator {
         return lateNightHours;
     }
 
-    private int calculateTotal( int endHour, int startHour, int lateNightHours) {
-        int adjustedStart = startHour;
-        int adjustedEnd = endHour;
-        if (endHour <= 17) {
-            adjustedEnd += 24;
-        }
+    private int calculateTotal( int endHour, int startHour, int lateNightHours, String family) {
 
-        if (startHour < 17) {
-            adjustedStart += 24;
-        }
+        if (family.equals("A")) {
+            int adjustedStart = startHour;
+            int adjustedEnd = endHour;
+            if (endHour <= 17) {
+                adjustedEnd += 24;
+            }
 
-        return ((Math.abs(adjustedEnd - adjustedStart) * 15) + (lateNightHours * 5));
+            if (startHour < 17) {
+                adjustedStart += 24;
+            }
+
+            return ((Math.abs(adjustedEnd - adjustedStart) * 15) + (lateNightHours * 5));
+        }
+        else {
+            return (endHour - startHour) * 12;
+        }
     }
 }
