@@ -35,43 +35,31 @@ public class BabysitterCalculator {
         int lateNightHours = 0;
         int adjustedStart = startTimeInMilitary;
         int adjustedEnd = endTimeInMilitary;
-
+        int timeWhenRatesChange = 0;
         if (family.equals("A")) {
-            if (startTimeInMilitary < 17) {
-                adjustedStart += 24;
-            }
-
-            if (endTimeInMilitary <= 17) {
-                adjustedEnd += 24;
-            }
-
-
-            for (int i = adjustedEnd; i > adjustedStart; i--) {
-                if (i > 23) {
-                    lateNightHours++;
-                }
-            }
-            return lateNightHours;
+            timeWhenRatesChange = 23;
         }
         else {
-            if (startTimeInMilitary < 17) {
-                adjustedStart += 24;
-            }
+            timeWhenRatesChange = 22;
+        }
 
-            if (endTimeInMilitary <= 17) {
-                adjustedEnd += 24;
-            }
+        if (startTimeInMilitary < 17) {
+            adjustedStart += 24;
+        }
+
+        if (endTimeInMilitary <= 17) {
+            adjustedEnd += 24;
+        }
+        
             for (int i = adjustedEnd; i > adjustedStart; i--) {
-                if (i > 22) {
+                if (i > timeWhenRatesChange) {
                     lateNightHours++;
                 }
             }
             return lateNightHours;
         }
-    }
 
     private int calculateTotal( int endHour, int startHour, int lateNightHours, String family) {
-
         int adjustedStart = startHour;
         int adjustedEnd = endHour;
         if (endHour <= 17) {
