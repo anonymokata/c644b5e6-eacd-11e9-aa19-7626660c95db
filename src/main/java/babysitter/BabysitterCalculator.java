@@ -38,7 +38,7 @@ public class BabysitterCalculator {
         int adjustedEnd = endTimeInMilitary;
         int timeWhenMiddleRatesStart = 22;
         int timeWhenMiddleRatesEnd = 24;
-        if (family.equals("A")) {
+        if (family.equals("A") || family.equals("C")) {
             return 0;
         }
 
@@ -66,8 +66,12 @@ public class BabysitterCalculator {
         if (family.equals("A")) {
             timeWhenRatesChange = 23;
         }
-        else {
+        else if (family.equals("B")){
             timeWhenRatesChange = 24;
+        }
+
+        else {
+            timeWhenRatesChange = 21;
         }
 
         if (startTimeInMilitary < 17) {
@@ -103,7 +107,7 @@ public class BabysitterCalculator {
             return ((Math.abs(adjustedEnd - adjustedStart) * 12) + (middleNightHours * -4) + (lateNightHours * 4));
         }
         else {
-            return (Math.abs(adjustedEnd - adjustedStart) * 21);
+            return ((Math.abs(adjustedEnd - adjustedStart) * 21)) + (lateNightHours * -6);
 
         }
     }
