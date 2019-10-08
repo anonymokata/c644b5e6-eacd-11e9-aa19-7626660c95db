@@ -103,7 +103,8 @@ public class BabysitterCalculator {
             return ((Math.abs(adjustedEnd - adjustedStart) * 12) + (middleNightHours * -4) + (lateNightHours * 4));
         }
         else {
-            return 21;
+            return (Math.abs(adjustedEnd - adjustedStart) * 21);
+
         }
     }
 }
