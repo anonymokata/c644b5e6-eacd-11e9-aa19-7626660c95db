@@ -113,8 +113,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/babysitter/BabysitterCalculatorTest.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="13" />
+          <line>71</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

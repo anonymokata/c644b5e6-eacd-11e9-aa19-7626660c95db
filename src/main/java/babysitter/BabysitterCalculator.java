@@ -51,7 +51,7 @@ public class BabysitterCalculator {
         }
 
         for (int i = adjustedEnd; i > adjustedStart; i--) {
-            if (i > timeWhenMiddleRatesStart && i < timeWhenMiddleRatesEnd) {
+            if (i > timeWhenMiddleRatesStart && i <= timeWhenMiddleRatesEnd) {
                 middleNightHours++;
             }
         }
