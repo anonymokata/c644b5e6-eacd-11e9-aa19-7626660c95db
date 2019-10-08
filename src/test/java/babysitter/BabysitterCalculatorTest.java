@@ -36,4 +36,9 @@ public class BabysitterCalculatorTest {
     public void testReturnsOneHundredNinetyDollarsForFullNightWithFamilyA() {
         Assertions.assertThat(babysitterCalculator.findTotal("5:00 PM", "4:00 AM", "A")).isEqualTo("$190.00");
     }
+
+    @Test
+    public void testReturnsFiftyDollarsWorkingNineToMidnightFamilyA() {
+        Assertions.assertThat(babysitterCalculator.findTotal("9:00 PM", "12:00 PM", "A")).isEqualTo("$50.00");
+    }
 }
