@@ -99,8 +99,11 @@ public class BabysitterCalculator {
         if (family.equals("A")) {
             return ((Math.abs(adjustedEnd - adjustedStart) * 15) + (lateNightHours * 5));
         }
-        else {
+        else if (family.equals("B")) {
             return ((Math.abs(adjustedEnd - adjustedStart) * 12) + (middleNightHours * -4) + (lateNightHours * 4));
+        }
+        else {
+            return 21;
         }
     }
 }
