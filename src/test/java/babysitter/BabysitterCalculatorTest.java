@@ -166,4 +166,9 @@ public class BabysitterCalculatorTest {
                 ("Sorry, the only valid families are A, B, or C.");
     }
 
+    @Test
+    public void testReturnsErrorMessageWhenFamilyIsInvalidAgain() {
+        assertThat(babysitterCalculator.findTotal("6:00PM", "8:00PM", "Invalid family.")).isEqualTo
+                ("Sorry, the only valid families are A, B, or C.");
+    }
 }
