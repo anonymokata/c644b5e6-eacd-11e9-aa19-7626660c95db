@@ -104,8 +104,14 @@ public class BabysitterCalculatorTest {
     }
 
     @Test
-    public void testReturnsErrorMessageForBadTimeFormats() {
+    public void testReturnsErrorMessageForBadStartTimeFormat() {
         assertThat(babysitterCalculator.findTotal("2 AM", "3:00AM", "A")).isEqualTo
+                ("Sorry, the valid time format is XX:XXPM.");
+    }
+
+    @Test
+    public void testReturnsErrorMessageForBadEndTimeFormat() {
+        assertThat(babysitterCalculator.findTotal("2:00AM", "3AM", "A")).isEqualTo
                 ("Sorry, the valid time format is XX:XXPM.");
     }
 }

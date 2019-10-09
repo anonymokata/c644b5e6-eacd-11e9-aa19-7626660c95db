@@ -3,7 +3,7 @@ package babysitter;
 public class BabysitterCalculator {
 
     public String findTotal(String startTime, String endTime, String family) {
-        if (!validateTimeFormat(startTime)) {
+        if (!validateTimeFormat(startTime) || !validateTimeFormat(endTime)) {
             return "Sorry, the valid time format is XX:XXPM.";
         }
 
