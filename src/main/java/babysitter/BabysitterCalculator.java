@@ -2,6 +2,10 @@ package babysitter;
 
 public class BabysitterCalculator {
 
+    public static void main(String[] args) {
+        System.out.println(new BabysitterCalculator().findTotal(args[0], args[1], args[2]));
+    }
+
     public String findTotal(String startTime, String endTime, String family) {
         String validationResult = validateInput(startTime, endTime);
         if (!validationResult.equals("valid")) {
@@ -21,16 +25,16 @@ public class BabysitterCalculator {
         return formatAsDollarValue(total);
     }
 
+    private int parseTime(String time) {
+        int hour = Integer.parseInt(time.split(":")[0]);
+        return hour;
+    }
+
     private boolean validateTimeFormat(String time) {
         if (time.matches("[0-9]{1,2}:[0-9]{1,2}[AP]M")) {
             return true;
         }
         return false;
-    }
-
-    private int parseTime(String time) {
-        int hour = Integer.parseInt(time.split(":")[0]);
-        return hour;
     }
 
     private boolean validateWorkingHours(String time) {

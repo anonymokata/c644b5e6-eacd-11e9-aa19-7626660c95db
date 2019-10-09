@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="18" failures="0" name="babysitter.BabysitterCalculatorTest" time="0.103" errors="0" skipped="0">
+<testsuite tests="29" failures="0" name="babysitter.BabysitterCalculatorTest" time="0.113" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.4+10-LTS"/>
@@ -64,21 +64,32 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsOneHundredFortyDollarsForFullNightFamilyB" time="0.099"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsOneHundredNinetyDollarsForFullNightWithFamilyA" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsOneHundredFortyDollarsForFullNightFamilyB" time="0.103"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testSitterGetsPaidForProperHoursWhenBothStartAndEndHAveMinutes" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testSitterGetsPaidForEntireEndHour" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsOneHundredNinetyDollarsForFullNightWithFamilyA" time="0.001"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsFortyTwoDollarsForTwoHoursFamilyC" time="0"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyDollarsForNineToElevenFamilyB" time="0"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyOneDollarsForOneHourFamilyC" time="0"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwelveDollarsForOneEarlyEveningHourFamilyB" time="0"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyFourDollarsForTwoEarlyEveningHoursFamilyB" time="0.001"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testSitterGetsPaidForEntireStartHour" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyDollarsForNineToElevenFamilyB" time="0.001"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyOneDollarsForOneHourFamilyC" time="0.001"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForNonsenseTimeOfDay" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwelveDollarsForOneEarlyEveningHourFamilyB" time="0.001"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyFourDollarsForTwoEarlyEveningHoursFamilyB" time="0"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsSixteenDollarsForOneHourLateNightFamilyB" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForBadStartTimeFormat" time="0.001"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsThirtySixDollarsForOneStandardHourAndOneLateHourFamilyC" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForStartTimeOutsideOfWorkingHours" time="0"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsFifteenDollarsForOneHourWithFamilyA" time="0.001"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForEndTimeOutsideOfWorkingHours" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForEndTimeEqualToStartTime" time="0"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsThirtyDollarsForTwoHoursWithFamilyA" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForEndTimeBeforeStartTime" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageForBadEndTimeFormat" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsErrorMessageWhenStartTimeHasLAterMinutesThanEndTimeWithinSameHour" time="0"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsThirtyFiveDollarsForOneHourBeforeElevenPmAndOneHourAfterWithFamilyA" time="0"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsFifteenDollarsForOneLateNightHourFamilyC" time="0.001"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsEightDollarsForTenToElevenFamilyB" time="0"/>
-  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsFortyDollarsForTwoLateNightHoursFamilyA" time="0"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsEightDollarsForTenToElevenFamilyB" time="0.001"/>
+  <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsFortyDollarsForTwoLateNightHoursFamilyA" time="0.001"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwoHundredSevenForOneNightFamilyC" time="0.001"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsTwentyFourDollarsForBetweenElevenAndOneFamilyB" time="0"/>
   <testcase classname="babysitter.BabysitterCalculatorTest" name="testReturnsFiftyDollarsWorkingNineToMidnightFamilyA" time="0"/>
