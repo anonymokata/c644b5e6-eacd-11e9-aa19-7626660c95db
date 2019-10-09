@@ -3,16 +3,9 @@ package babysitter;
 public class BabysitterCalculator {
 
     public String findTotal(String startTime, String endTime, String family) {
-        if (!validateTimeFormat(startTime) || !validateTimeFormat(endTime)) {
-            return "Sorry, the valid time format is XX:XXPM.";
-        }
-
-        if (!validateWorkingHours(startTime) || !validateWorkingHours(endTime)) {
-            return "Sorry, valid working hours are between 5:00PM and 4:00AM.";
-        }
-
-        if (!validateStartTimeBeforeEndTime(startTime, endTime)) {
-            return "Sorry, your start time must be before your end time.";
+        String validationResult = validateInput(startTime, endTime);
+        if (!validationResult.equals("valid")) {
+            return validationResult;
         }
 
         int startHour = parseTime(startTime);
@@ -70,6 +63,21 @@ public class BabysitterCalculator {
             adjustedTime += 12;
         }
         return adjustedTime;
+    }
+
+    public String validateInput(String startTime, String endTime) {
+        if (!validateTimeFormat(startTime) || !validateTimeFormat(endTime)) {
+            return "Sorry, the valid time format is XX:XXPM.";
+        }
+
+        if (!validateWorkingHours(startTime) || !validateWorkingHours(endTime)) {
+            return "Sorry, valid working hours are between 5:00PM and 4:00AM.";
+        }
+
+        if (!validateStartTimeBeforeEndTime(startTime, endTime)) {
+            return "Sorry, your start time must be before your end time.";
+        }
+        return "valid";
     }
 
     private int findMiddleNightHours(int adjustedStartTime, int adjustedEndTime, String family) {
