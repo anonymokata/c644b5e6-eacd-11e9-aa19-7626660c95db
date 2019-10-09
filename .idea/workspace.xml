@@ -61,6 +61,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BabysitterCalculatorTest.testReturnsEightDollarsForTenToElevenFamilyB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="babysitter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="babysitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="babysitter" />
+      <option name="MAIN_CLASS_NAME" value="babysitter.BabysitterCalculatorTest" />
+      <option name="METHOD_NAME" value="testReturnsEightDollarsForTenToElevenFamilyB" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BabysitterCalculatorTest.testReturnsFifteenDollarsForOneHourWithFamilyA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="babysitter" />
       <extension name="coverage">
@@ -80,6 +96,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BabysitterCalculatorTest" />
+        <item itemvalue="JUnit.BabysitterCalculatorTest.testReturnsEightDollarsForTenToElevenFamilyB" />
         <item itemvalue="JUnit.BabysitterCalculatorTest.testReturnsFifteenDollarsForOneHourWithFamilyA" />
       </list>
     </recent_temporary>
