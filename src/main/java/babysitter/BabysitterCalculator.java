@@ -6,13 +6,10 @@ public class BabysitterCalculator {
         int startHour = parseTime(startTime);
         int endHour = parseTime(endTime);
 
-        int startAtMilitaryTime = convertTimeToMilitary(startHour);
-        int endAtMilitaryTime = convertTimeToMilitary(endHour);
+        int middleNightHours = findMiddleNightHours(startHour, endHour, family);
+        int lateNightHours = findLateNightHours(startHour, endHour, family);
 
-        int middleNightHours = findMiddleNightHours(startAtMilitaryTime, endAtMilitaryTime, family);
-        int lateNightHours = findLateNightHours(startAtMilitaryTime, endAtMilitaryTime, family);
-
-        int total = calculateTotal(startAtMilitaryTime, endAtMilitaryTime, middleNightHours, lateNightHours, family);
+        int total = calculateTotal(startHour, endHour, middleNightHours, lateNightHours, family);
         return formatAsDollarValue(total);
     }
 
@@ -21,33 +18,23 @@ public class BabysitterCalculator {
         return hour;
     }
 
-    private int convertTimeToMilitary(int hour) {
-        int militaryTime;
-        if (hour < 5) {
-            militaryTime = hour;
-        } else {
-            militaryTime = hour + 12;
-        }
-        return militaryTime;
-    }
-
-    private int findMiddleNightHours(int startTimeInMilitary, int endTimeInMilitary, String family) {
+    private int findMiddleNightHours(int startHour, int endHour, String family) {
         int middleNightHours = 0;
-        int timeWhenMiddleRatesStart = 22;
-        int timeWhenMiddleRatesEnd = 24;
+        int timeWhenMiddleRatesStart = 10;
+        int timeWhenMiddleRatesEnd = 12;
         if (family.equals("A") || family.equals("C")) {
             return 0;
         }
 
-        int adjustedStart = startTimeInMilitary;
-        int adjustedEnd = endTimeInMilitary;
+        int adjustedStart = startHour;
+        int adjustedEnd = endHour;
 
-        if (startTimeInMilitary < 17) {
-            adjustedStart += 24;
+        if (startHour < 5) {
+            adjustedStart += 12;
         }
 
-        if (endTimeInMilitary <= 17) {
-            adjustedEnd += 24;
+        if (endHour <= 5) {
+            adjustedEnd += 12;
         }
 
         for (int i = adjustedEnd; i > adjustedStart; i--) {
@@ -58,27 +45,27 @@ public class BabysitterCalculator {
         return middleNightHours;
     }
 
-    private int findLateNightHours(int startTimeInMilitary, int endTimeInMilitary, String family) {
+    private int findLateNightHours(int startHours, int endHours, String family) {
         int lateNightHours = 0;
 
         int timeWhenRatesChange;
         if (family.equals("A")) {
-            timeWhenRatesChange = 23;
+            timeWhenRatesChange = 11;
         } else if (family.equals("B")){
-            timeWhenRatesChange = 24;
+            timeWhenRatesChange = 12;
         } else {
-            timeWhenRatesChange = 21;
+            timeWhenRatesChange = 9;
         }
 
-        int adjustedStart = startTimeInMilitary;
-        int adjustedEnd = endTimeInMilitary;
+        int adjustedStart = startHours;
+        int adjustedEnd = endHours;
 
-        if (startTimeInMilitary < 17) {
-            adjustedStart += 24;
+        if (startHours < 5) {
+            adjustedStart += 12;
         }
 
-        if (endTimeInMilitary <= 17) {
-            adjustedEnd += 24;
+        if (endHours <= 5) {
+            adjustedEnd += 12;
         }
 
         for (int i = adjustedEnd; i > adjustedStart; i--) {
@@ -92,12 +79,12 @@ public class BabysitterCalculator {
     private int calculateTotal(int startHour, int endHour, int middleNightHours, int lateNightHours, String family) {
         int adjustedStart = startHour;
         int adjustedEnd = endHour;
-        if (endHour <= 17) {
-            adjustedEnd += 24;
+        if (endHour <= 5) {
+            adjustedEnd += 12;
         }
 
-        if (startHour < 17) {
-            adjustedStart += 24;
+        if (startHour < 5) {
+            adjustedStart += 12;
         }
         if (family.equals("A")) {
             return ((Math.abs(adjustedEnd - adjustedStart) * 15) + (lateNightHours * 5));
