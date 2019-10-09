@@ -65,7 +65,7 @@ public class BabysitterCalculatorTest {
 
     @Test
     public void testReturnsSixteenDollarsForOneHourLateNightFamilyB() {
-        assertThat(babysitterCalculator.findTotal("1:00PM", "2:00AM", "B")).isEqualTo("$16.00");
+        assertThat(babysitterCalculator.findTotal("1:00AM", "2:00AM", "B")).isEqualTo("$16.00");
     }
 
     @Test
@@ -124,6 +124,12 @@ public class BabysitterCalculatorTest {
     @Test
     public void testReturnsErrorMessageForStartTimeOutsideOfWorkingHours() {
         assertThat(babysitterCalculator.findTotal("11:00AM", "6:00PM", "A")).isEqualTo
+                ("Sorry, valid working hours are between 5:00PM and 4:00AM.");
+    }
+
+    @Test
+    public void testReturnsErrorMessageForEndTimeOutsideOfWorkingHours() {
+        assertThat(babysitterCalculator.findTotal("4:00AM", "2:00PM", "A")).isEqualTo
                 ("Sorry, valid working hours are between 5:00PM and 4:00AM.");
     }
 }
