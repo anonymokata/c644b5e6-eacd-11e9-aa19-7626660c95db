@@ -1,7 +1,7 @@
 # Babysitter Kata
 
 ### Prerequisites
-pull the repository from git
+Pull the repository from git
 
 ```$ git clone https://github.com/kiaraa/babysitter```
 
