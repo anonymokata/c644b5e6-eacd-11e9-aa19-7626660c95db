@@ -7,6 +7,10 @@ public class BabysitterCalculator {
             return "Sorry, the valid time format is XX:XXPM.";
         }
 
+        if (!validateWorkingHours(startTime)) {
+            return "Sorry, valid working hours are between 5:00PM and 4:00AM.";
+        }
+
         int startHour = parseTime(startTime);
         int endHour = parseTime(endTime);
 
@@ -30,6 +34,17 @@ public class BabysitterCalculator {
     private int parseTime(String time) {
         int hour = Integer.parseInt(time.split(":")[0]);
         return hour;
+    }
+
+    public boolean validateWorkingHours(String time) {
+        String AmOrPm = time.substring(time.length() - 2);
+        int hour = parseTime(time);
+        if (AmOrPm.equals("AM")) {
+            if (hour > 4) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private int adjustTimeForEasySubtraction(int time) {

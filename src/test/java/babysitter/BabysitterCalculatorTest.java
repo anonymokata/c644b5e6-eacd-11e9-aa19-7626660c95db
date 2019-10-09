@@ -120,4 +120,10 @@ public class BabysitterCalculatorTest {
         assertThat(babysitterCalculator.findTotal("11:00NM", "6:00PM", "A")).isEqualTo
                 ("Sorry, the valid time format is XX:XXPM.");
     }
+
+    @Test
+    public void testReturnsErrorMessageForStartTimeOutsideOfWorkingHours() {
+        assertThat(babysitterCalculator.findTotal("11:00AM", "6:00PM", "A")).isEqualTo
+                ("Sorry, valid working hours are between 5:00PM and 4:00AM.");
+    }
 }
