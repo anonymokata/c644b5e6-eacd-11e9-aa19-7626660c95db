@@ -138,4 +138,10 @@ public class BabysitterCalculatorTest {
         assertThat(babysitterCalculator.findTotal("4:00AM", "3:00AM", "A")).isEqualTo
                 ("Sorry, your start time must be before your end time.");
     }
+
+    @Test
+    public void testReturnsErrorMessageForEndTimeEqualToStartTime() {
+        assertThat(babysitterCalculator.findTotal("7:00PM", "7:00PM", "A")).isEqualTo
+                ("Sorry, your start time must be before your end time.");
+    }
 }
