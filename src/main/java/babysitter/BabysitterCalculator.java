@@ -12,7 +12,7 @@ public class BabysitterCalculator {
         int middleNightHours = findMiddleNightHours(startAtMilitaryTime, endAtMilitaryTime, family);
         int lateNightHours = findLateNightHours(startAtMilitaryTime, endAtMilitaryTime, family);
 
-        int total = calculateTotal(endAtMilitaryTime, startAtMilitaryTime, middleNightHours, lateNightHours, family);
+        int total = calculateTotal(startAtMilitaryTime, endAtMilitaryTime, middleNightHours, lateNightHours, family);
         return formatAsDollarValue(total);
     }
 
@@ -25,8 +25,7 @@ public class BabysitterCalculator {
         int militaryTime;
         if (hour < 5) {
             militaryTime = hour;
-        }
-        else {
+        } else {
             militaryTime = hour + 12;
         }
         return militaryTime;
@@ -34,13 +33,14 @@ public class BabysitterCalculator {
 
     private int findMiddleNightHours(int startTimeInMilitary, int endTimeInMilitary, String family) {
         int middleNightHours = 0;
-        int adjustedStart = startTimeInMilitary;
-        int adjustedEnd = endTimeInMilitary;
         int timeWhenMiddleRatesStart = 22;
         int timeWhenMiddleRatesEnd = 24;
         if (family.equals("A") || family.equals("C")) {
             return 0;
         }
+
+        int adjustedStart = startTimeInMilitary;
+        int adjustedEnd = endTimeInMilitary;
 
         if (startTimeInMilitary < 17) {
             adjustedStart += 24;
@@ -60,19 +60,18 @@ public class BabysitterCalculator {
 
     private int findLateNightHours(int startTimeInMilitary, int endTimeInMilitary, String family) {
         int lateNightHours = 0;
-        int adjustedStart = startTimeInMilitary;
-        int adjustedEnd = endTimeInMilitary;
-        int timeWhenRatesChange = 0;
+
+        int timeWhenRatesChange;
         if (family.equals("A")) {
             timeWhenRatesChange = 23;
-        }
-        else if (family.equals("B")){
+        } else if (family.equals("B")){
             timeWhenRatesChange = 24;
-        }
-
-        else {
+        } else {
             timeWhenRatesChange = 21;
         }
+
+        int adjustedStart = startTimeInMilitary;
+        int adjustedEnd = endTimeInMilitary;
 
         if (startTimeInMilitary < 17) {
             adjustedStart += 24;
@@ -90,7 +89,7 @@ public class BabysitterCalculator {
         return lateNightHours;
     }
 
-    private int calculateTotal( int endHour, int startHour, int middleNightHours, int lateNightHours, String family) {
+    private int calculateTotal(int startHour, int endHour, int middleNightHours, int lateNightHours, String family) {
         int adjustedStart = startHour;
         int adjustedEnd = endHour;
         if (endHour <= 17) {
@@ -102,11 +101,9 @@ public class BabysitterCalculator {
         }
         if (family.equals("A")) {
             return ((Math.abs(adjustedEnd - adjustedStart) * 15) + (lateNightHours * 5));
-        }
-        else if (family.equals("B")) {
+        } else if (family.equals("B")) {
             return ((Math.abs(adjustedEnd - adjustedStart) * 12) + (middleNightHours * -4) + (lateNightHours * 4));
-        }
-        else {
+        } else {
             return ((Math.abs(adjustedEnd - adjustedStart) * 21)) + (lateNightHours * -6);
         }
     }
