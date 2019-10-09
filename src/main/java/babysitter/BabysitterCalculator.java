@@ -65,14 +65,51 @@ public class BabysitterCalculator {
         return lateNightHours;
     }
 
-    private int calculateTotal(int adjustedStartTime, int adjustedEndTime, int middleNightHours, int lateNightHours, String family) {
+    private int findDefaultRate(String family) {
+        int defaultRate;
         if (family.equals("A")) {
-            return ((Math.abs(adjustedEndTime - adjustedStartTime) * 15) + (lateNightHours * 5));
+            defaultRate = 15;
         } else if (family.equals("B")) {
-            return ((Math.abs(adjustedEndTime - adjustedStartTime) * 12) + (middleNightHours * -4) + (lateNightHours * 4));
+            defaultRate = 12;
+        } else if (family.equals("C")) {
+            defaultRate = 21;
         } else {
-            return ((Math.abs(adjustedEndTime - adjustedStartTime) * 21)) + (lateNightHours * -6);
+            defaultRate = 0;
         }
+        return defaultRate;
+    }
+
+    private int findMiddleRate(String family) {
+        int middleRate;
+        if (family.equals("B")) {
+            middleRate = -4;
+        } else {
+            middleRate = 0;
+        }
+        return middleRate;
+    }
+
+    private int findLateRate(String family) {
+        int lateRate;
+        if (family.equals("A")) {
+            lateRate = 5;
+        } else if (family.equals("B")) {
+            lateRate = 4;
+        } else if (family.equals("C")) {
+            lateRate = -6;
+        } else {
+            lateRate = 0;
+        }
+        return lateRate;
+    }
+
+    private int calculateTotal(int adjustedStartTime, int adjustedEndTime, int middleNightHours, int lateNightHours, String family) {
+        int defaultRate = findDefaultRate(family);
+        int middleRateModifier = findMiddleRate(family);
+        int lateRateModifier = findLateRate(family);
+
+        return ((Math.abs(adjustedEndTime - adjustedStartTime) * defaultRate) + (middleNightHours * middleRateModifier)
+                + (lateNightHours * lateRateModifier));
     }
 
     private String formatAsDollarValue(int total) {
