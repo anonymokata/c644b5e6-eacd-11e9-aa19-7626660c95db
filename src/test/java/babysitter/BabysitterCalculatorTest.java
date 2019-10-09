@@ -114,4 +114,10 @@ public class BabysitterCalculatorTest {
         assertThat(babysitterCalculator.findTotal("2:00AM", "3AM", "A")).isEqualTo
                 ("Sorry, the valid time format is XX:XXPM.");
     }
+
+    @Test
+    public void testReturnsErrorMessageForNonsenseTimeOfDay() {
+        assertThat(babysitterCalculator.findTotal("11:00NM", "6:00PM", "A")).isEqualTo
+                ("Sorry, the valid time format is XX:XXPM.");
+    }
 }
