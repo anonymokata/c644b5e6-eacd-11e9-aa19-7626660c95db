@@ -9,7 +9,7 @@ public class BabysitterCalculator {
         }
 
         int startHour = parseTime(startTime);
-        int endHour = parseTime(endTime);
+        int endHour = addHourToEndTimeIfExtraMinutes(endTime);
 
         int adjustedStartTime = adjustTimeForEasySubtraction(startHour);
         int adjustedEndTime = adjustTimeForEasySubtraction(endHour);
@@ -78,6 +78,15 @@ public class BabysitterCalculator {
             return "Sorry, your start time must be before your end time.";
         }
         return "valid";
+    }
+
+    private int addHourToEndTimeIfExtraMinutes(String endTime) {
+        int actualEndTime = parseTime(endTime);
+        if (endTime.substring(endTime.length() - 4, endTime.length() - 2).equals("00")) {
+            return actualEndTime;
+        } else {
+            return actualEndTime + 1;
+        }
     }
 
     private int findMiddleNightHours(int adjustedStartTime, int adjustedEndTime, String family) {
