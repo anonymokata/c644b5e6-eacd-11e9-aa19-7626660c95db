@@ -11,6 +11,10 @@ public class BabysitterCalculator {
             return "Sorry, valid working hours are between 5:00PM and 4:00AM.";
         }
 
+        if (!validateStartTimeBeforeEndTime(startTime, endTime)) {
+            return "Sorry, your start time must be before your end time.";
+        }
+
         int startHour = parseTime(startTime);
         int endHour = parseTime(endTime);
 
@@ -24,7 +28,7 @@ public class BabysitterCalculator {
         return formatAsDollarValue(total);
     }
 
-    public boolean validateTimeFormat(String time) {
+    private boolean validateTimeFormat(String time) {
         if (time.matches("[0-9]{1,2}:[0-9]{1,2}[AP]M")) {
             return true;
         }
@@ -36,7 +40,7 @@ public class BabysitterCalculator {
         return hour;
     }
 
-    public boolean validateWorkingHours(String time) {
+    private boolean validateWorkingHours(String time) {
         String AmOrPm = time.substring(time.length() - 2);
         int hour = parseTime(time);
         if (AmOrPm.equals("AM")) {
@@ -47,6 +51,15 @@ public class BabysitterCalculator {
             if (hour < 5) {
                 return false;
             }
+        }
+        return true;
+    }
+
+    private boolean validateStartTimeBeforeEndTime(String startTime, String endTime) {
+        int adjustedStartTime = adjustTimeForEasySubtraction(parseTime(startTime));
+        int adjustedEndTime = adjustTimeForEasySubtraction(parseTime(endTime));
+        if (adjustedEndTime - adjustedStartTime <= 0) {
+            return false;
         }
         return true;
     }
