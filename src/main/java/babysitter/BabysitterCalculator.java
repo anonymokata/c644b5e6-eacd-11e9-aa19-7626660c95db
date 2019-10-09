@@ -12,8 +12,8 @@ public class BabysitterCalculator {
         int middleNightHours = findMiddleNightHours(startAtMilitaryTime, endAtMilitaryTime, family);
         int lateNightHours = findLateNightHours(startAtMilitaryTime, endAtMilitaryTime, family);
 
-        return "$" + calculateTotal(endAtMilitaryTime, startAtMilitaryTime, middleNightHours, lateNightHours, family) + ".00";
-
+        int total = calculateTotal(endAtMilitaryTime, startAtMilitaryTime, middleNightHours, lateNightHours, family);
+        return formatAsDollarValue(total);
     }
 
     private int parseTime(String time) {
@@ -108,7 +108,10 @@ public class BabysitterCalculator {
         }
         else {
             return ((Math.abs(adjustedEnd - adjustedStart) * 21)) + (lateNightHours * -6);
-
         }
+    }
+
+    private String formatAsDollarValue(int total) {
+        return "$" + total + ".00";
     }
 }
