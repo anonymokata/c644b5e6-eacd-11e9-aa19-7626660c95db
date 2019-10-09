@@ -7,7 +7,7 @@ public class BabysitterCalculator {
     }
 
     public String findTotal(String startTime, String endTime, String family) {
-        String validationResult = validateInput(startTime, endTime);
+        String validationResult = validateInput(startTime, endTime, family);
         if (!validationResult.equals("valid")) {
             return validationResult;
         }
@@ -69,7 +69,14 @@ public class BabysitterCalculator {
         return adjustedTime;
     }
 
-    public String validateInput(String startTime, String endTime) {
+    private boolean validateFamily(String family) {
+        if (family.equals("A") || family.equals("B") || family.equals("C")) {
+            return true;
+        }
+        return false;
+    }
+
+    public String validateInput(String startTime, String endTime, String family) {
         if (!validateTimeFormat(startTime) || !validateTimeFormat(endTime)) {
             return "Sorry, the valid time format is XX:XXPM.";
         }
@@ -80,6 +87,10 @@ public class BabysitterCalculator {
 
         if (!validateStartTimeBeforeEndTime(startTime, endTime)) {
             return "Sorry, your start time must be before your end time.";
+        }
+
+        if (!validateFamily(family)) {
+            return "Sorry, the only valid families are A, B, or C.";
         }
         return "valid";
     }

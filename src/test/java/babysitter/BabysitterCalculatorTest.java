@@ -161,8 +161,9 @@ public class BabysitterCalculatorTest {
     }
 
     @Test
-    public void testReturnsErrorMessageWhenStartTimeHasLAterMinutesThanEndTimeWithinSameHour() {
-        assertThat(babysitterCalculator.findTotal("6:12PM", "6:10PM", "B")).isEqualTo
-                ("Sorry, your start time must be before your end time.");
+    public void testReturnsErrorMessageWhenFamilyIsInvalid() {
+        assertThat(babysitterCalculator.findTotal("6:00PM", "8:00PM", "D")).isEqualTo
+                ("Sorry, the only valid families are A, B, or C.");
     }
+
 }
