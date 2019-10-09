@@ -154,4 +154,9 @@ public class BabysitterCalculatorTest {
     public void testSitterGetsPaidForEntireEndHour() {
         assertThat(babysitterCalculator.findTotal("6:00PM", "8:30PM", "B")).isEqualTo("$36.00");
     }
+
+    @Test
+    public void testSitterGetsPaidForProperHoursWhenBothStartAndEndHAveMinutes() {
+        assertThat(babysitterCalculator.findTotal("6:12PM", "8:30PM", "B")).isEqualTo("$36.00");
+    }
 }
