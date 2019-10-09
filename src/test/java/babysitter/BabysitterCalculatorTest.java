@@ -103,4 +103,9 @@ public class BabysitterCalculatorTest {
         assertThat(babysitterCalculator.findTotal("5:00PM", "4:00AM", "C")).isEqualTo("$189.00");
     }
 
+    @Test
+    public void testReturnsErrorMessageForBadTimeFormats() {
+        assertThat(babysitterCalculator.findTotal("2 AM", "3:00AM", "A")).isEqualTo
+                ("Sorry, the valid time format is XX:XXPM.");
+    }
 }

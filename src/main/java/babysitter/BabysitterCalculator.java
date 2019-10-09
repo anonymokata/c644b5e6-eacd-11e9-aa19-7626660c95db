@@ -3,6 +3,10 @@ package babysitter;
 public class BabysitterCalculator {
 
     public String findTotal(String startTime, String endTime, String family) {
+        if (!validateTimeFormat(startTime)) {
+            return "Sorry, the valid time format is XX:XXPM.";
+        }
+
         int startHour = parseTime(startTime);
         int endHour = parseTime(endTime);
 
@@ -14,6 +18,13 @@ public class BabysitterCalculator {
 
         int total = calculateTotal(adjustedStartTime, adjustedEndTime, middleNightHours, lateNightHours, family);
         return formatAsDollarValue(total);
+    }
+
+    public boolean validateTimeFormat(String time) {
+        if (time.matches("[0-9]{1,2}:[0-9]{1,2}[AP]M")) {
+            return true;
+        }
+        return false;
     }
 
     private int parseTime(String time) {
